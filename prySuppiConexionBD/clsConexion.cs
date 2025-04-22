@@ -10,11 +10,18 @@ namespace prySuppiConexionBD
 {
     internal class clsConexion
     {
+
+        private string connectionString = "Server=localhost;Database=Comercio;Trusted_Connection=True;";
+
+        public SqlConnection ObtenerConexion()
+        {
+            return new SqlConnection(connectionString);
+        }
         public void VerificarConexion()
         {
-            string connectionString = "Server=localhost;Database=Comercio;Trusted_Connection=True;";
+           
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = ObtenerConexion())
             {
                 try
                 {

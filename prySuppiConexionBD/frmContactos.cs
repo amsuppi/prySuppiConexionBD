@@ -12,6 +12,7 @@ namespace prySuppiConexionBD
 {
     public partial class frmContactos : Form
     {
+
         public frmContactos()
         {
             InitializeComponent();

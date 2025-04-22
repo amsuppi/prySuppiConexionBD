@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsConexion.cs" />
+    <Compile Include="clsCrud.cs" />
     <Compile Include="frmContactos.cs">
       <SubType>Form</SubType>
     </Compile>
