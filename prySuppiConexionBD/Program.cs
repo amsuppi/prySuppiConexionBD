@@ -16,7 +16,7 @@ namespace prySuppiConexionBD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmContactos());
+            Application.Run(new frmProductos());
         }
     }
 }

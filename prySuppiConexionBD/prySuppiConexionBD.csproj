@@ -47,17 +47,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsConexion.cs" />
-    <Compile Include="clsCrud.cs" />
-    <Compile Include="frmContactos.cs">
+    <Compile Include="frmProdutos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmContactos.Designer.cs">
-      <DependentUpon>frmContactos.cs</DependentUpon>
+    <Compile Include="frmProdutos.Designer.cs">
+      <DependentUpon>frmProdutos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmContactos.resx">
-      <DependentUpon>frmContactos.cs</DependentUpon>
+    <EmbeddedResource Include="frmProdutos.resx">
+      <DependentUpon>frmProdutos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
