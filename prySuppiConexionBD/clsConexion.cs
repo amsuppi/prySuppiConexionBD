@@ -36,6 +36,32 @@ namespace prySuppiConexionBD
         }
 
 
+        public void TraerCategorias(ComboBox cmbCategorias)
+        {
+            using (SqlConnection connection = ObtenerConexion())
+            {
+                try
+                {
+                    connection.Open();
+                    string selectQuery = "SELECT Id, Nombre FROM Categorias";
+                    SqlCommand cmd = new SqlCommand(selectQuery, connection);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        cmbCategorias.Items.Add(reader["Nombre"]);
+
+                    }
+                    reader.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("❌ Error al buscar producto: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
 
         public void InertarProducto(string nombre, decimal precio, int stock, int categoria, string descripcion)
         {
@@ -105,6 +131,55 @@ namespace prySuppiConexionBD
                 catch (Exception ex)
                 {
                     Console.WriteLine("❌ Error al eliminar producto: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+        public void BuscarProducto(DataGridView dataGridView)
+        {
+            using (SqlConnection connection = ObtenerConexion())
+            {
+                try
+                {
+                    connection.Open();
+                    string selectQuery = "SELECT P.Nombre, P.Precio, P.Stock, C.Nombre AS Categoria FROM Productos P JOIN Categorias C ON P.CategoriaId = C.Id";
+                    SqlCommand cmd = new SqlCommand(selectQuery, connection);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+
+                        dataGridView.Rows.Add(reader["Nombre"], reader["Precio"], reader["Stock"], reader["Categoria"]);
+                    }
+                    reader.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("❌ Error al buscar producto: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        public void SeleccionarCategoria()
+        {
+            using (SqlConnection connection = ObtenerConexion())
+            {
+                try
+                {
+                    string selectQuery = "SELECT P.Nombre, P.Precio, P.Stock, C.Nombre AS Categoria FROM Productos P JOIN Categorias C ON P.CategoriaId = C.Id";
+                    SqlCommand cmd = new SqlCommand(selectQuery, connection);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Console.WriteLine($"{reader["Nombre"]} - ${reader["Precio"]} - Stock: {reader["Stock"]} - Categoría: {reader["Categoria"]}");
+                    }
+                    reader.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("❌ Error al buscar producto: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

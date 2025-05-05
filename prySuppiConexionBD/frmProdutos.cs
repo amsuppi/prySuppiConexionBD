@@ -17,14 +17,11 @@ namespace prySuppiConexionBD
         public frmProductos()
         {
             InitializeComponent();
-            cmbCategoria.Items.Add("Hogar");
-            cmbCategoria.Items.Add("Tecnologia");
-            cmbCategoria.Items.Add("Ropa");
         }
 
         private void frmContactos_Load(object sender, EventArgs e)
         {
-            
+            clsConexion.TraerCategorias(cmbCategoria);
             clsConexion.VerificarConexion();
         }
 
@@ -39,8 +36,10 @@ namespace prySuppiConexionBD
             string nombre = txtNombre.Text;
             decimal precio = Convert.ToDecimal(txtPrecio.Text);
             int stock = Convert.ToInt32(nudStock.Text);
-            int categoria = cmbCategoria.SelectedIndex;
+            int categoria = cmbCategoria.SelectedIndex + 1;
             string descripcion = rtxtDescripcion.Text;
+
+            Console.WriteLine(categoria);
 
             clsConexion.InertarProducto(nombre, precio, stock, categoria, descripcion);
 
@@ -58,6 +57,12 @@ namespace prySuppiConexionBD
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             clsConexion.EliminarProducto(txtNombre.Text);
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            frmBuscarProducto frmBuscarProducto = new frmBuscarProducto();
+            frmBuscarProducto.Show();
         }
     }
 }
