@@ -130,7 +130,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(12, 335);
+            this.btnEliminar.Location = new System.Drawing.Point(111, 233);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(125, 37);
             this.btnEliminar.TabIndex = 11;
@@ -140,7 +140,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(227, 335);
+            this.btnEditar.Location = new System.Drawing.Point(268, 233);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(121, 37);
             this.btnEditar.TabIndex = 12;
@@ -160,11 +160,11 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(16, 397);
+            this.btnBuscar.Location = new System.Drawing.Point(12, 335);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(551, 37);
+            this.btnBuscar.Size = new System.Drawing.Size(136, 37);
             this.btnBuscar.TabIndex = 14;
-            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Text = "Ver";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -172,7 +172,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 457);
+            this.ClientSize = new System.Drawing.Size(579, 393);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnEditar);

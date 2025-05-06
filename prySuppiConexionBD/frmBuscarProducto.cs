@@ -20,12 +20,30 @@ namespace prySuppiConexionBD
         private void frmBuscarProducto_Load(object sender, EventArgs e)
         {
             dgvProductos.Rows.Clear();
-            dgvProductos.Columns.Add("Nombre", "Nombre");
-            dgvProductos.Columns.Add("Precio", "Precio");
-            dgvProductos.Columns.Add("Stock", "Stock");
-            dgvProductos.Columns.Add("Categoria", "Categoria");
+           
             clsConexion clsConexion = new clsConexion();
             clsConexion.BuscarProducto(dgvProductos);
+        }
+
+        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Console.WriteLine(e.ColumnIndex);
+
+            if (e.ColumnIndex == 4)
+            {
+                clsConexion clsConexion = new clsConexion();
+                string nombre = dgvProductos.Rows[e.RowIndex].Cells[0].Value.ToString();
+                string precio = dgvProductos.Rows[e.RowIndex].Cells[1].Value.ToString();
+                clsConexion.EditarProducto(nombre, Convert.ToDecimal(precio), dgvProductos);
+
+            }
+            else if (e.ColumnIndex == 5)
+            {
+                clsConexion clsConexion = new clsConexion();
+                string nombre = dgvProductos.Rows[e.RowIndex].Cells[0].Value.ToString();
+                string precio = dgvProductos.Rows[e.RowIndex].Cells[1].Value.ToString();
+                clsConexion.EliminarProducto(nombre, dgvProductos);
+            }
         }
     }
 }

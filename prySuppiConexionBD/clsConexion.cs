@@ -50,6 +50,7 @@ namespace prySuppiConexionBD
                     {
                         cmbCategorias.Items.Add(reader["Nombre"]);
 
+
                     }
                     reader.Close();
 
@@ -90,7 +91,7 @@ namespace prySuppiConexionBD
             }
         }
 
-        public void EditarProducto(string nombre, decimal precio)
+        public void EditarProducto(string nombre, decimal precio, DataGridView dataGrid)
         {
             using (SqlConnection connection = ObtenerConexion())
             {
@@ -105,6 +106,8 @@ namespace prySuppiConexionBD
                     command.ExecuteNonQuery();
                     MessageBox.Show("🔄 Producto actualizado.");
 
+                    BuscarProducto(dataGrid);
+
                 }
                 catch (Exception ex)
                 {
@@ -113,7 +116,7 @@ namespace prySuppiConexionBD
             }
         }
 
-        public void EliminarProducto(string nombre)
+        public void EliminarProducto(string nombre, DataGridView dataGrid)
         {
             using (SqlConnection connection = ObtenerConexion())
             {
@@ -127,6 +130,8 @@ namespace prySuppiConexionBD
                     command.ExecuteNonQuery();
                     MessageBox.Show("🔄 Producto Eliminado.");
 
+                    BuscarProducto(dataGrid);
+
                 }
                 catch (Exception ex)
                 {
@@ -138,10 +143,33 @@ namespace prySuppiConexionBD
 
         public void BuscarProducto(DataGridView dataGridView)
         {
+            dataGridView.Rows.Clear();
+            dataGridView.Columns.Clear();
+
+            dataGridView.Columns.Add("Nombre", "Nombre");
+            dataGridView.Columns.Add("Precio", "Precio");
+            dataGridView.Columns.Add("Stock", "Stock");
+            dataGridView.Columns.Add("Categoria", "Categoria");
+
             using (SqlConnection connection = ObtenerConexion())
             {
                 try
                 {
+
+                    DataGridViewButtonColumn btnEditar = new DataGridViewButtonColumn();
+                    btnEditar.Name = "btnEditar";
+                    btnEditar.HeaderText = "Editar";
+                    btnEditar.Text = "Editar";
+                    btnEditar.UseColumnTextForButtonValue = true;
+                    dataGridView.Columns.Add(btnEditar);
+
+                    DataGridViewButtonColumn btnEliminar = new DataGridViewButtonColumn();
+                    btnEliminar.Name = "btnEliminar";
+                    btnEliminar.HeaderText = "Eliminar";
+                    btnEliminar.Text = "Eliminar";
+                    btnEliminar.UseColumnTextForButtonValue = true;
+                    dataGridView.Columns.Add(btnEliminar);
+
                     connection.Open();
                     string selectQuery = "SELECT P.Nombre, P.Precio, P.Stock, C.Nombre AS Categoria FROM Productos P JOIN Categorias C ON P.CategoriaId = C.Id";
                     SqlCommand cmd = new SqlCommand(selectQuery, connection);
@@ -150,6 +178,7 @@ namespace prySuppiConexionBD
                     {
 
                         dataGridView.Rows.Add(reader["Nombre"], reader["Precio"], reader["Stock"], reader["Categoria"]);
+
                     }
                     reader.Close();
 
