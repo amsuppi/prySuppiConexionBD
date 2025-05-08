@@ -84,22 +84,16 @@ namespace prySuppiConexionBD
             } else
             {
                 clsConexion.InertarProducto(nombre, Convert.ToDecimal(precio), stock, categoria, descripcion);
+
+                txtNombre.Text = "";
+                txtPrecio.Text = "";
+                rtxtDescripcion.Text = "";
+                cmbCategoria.SelectedIndex = -1;
+                nudStock.Text = "";
             }
 
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            string nombre = txtNombre.Text;
-            decimal precio = Convert.ToDecimal(txtPrecio.Text);
-
-            // clsConexion.EditarProducto(nombre, precio, );
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            //clsConexion.EliminarProducto(txtNombre.Text);
-        }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {

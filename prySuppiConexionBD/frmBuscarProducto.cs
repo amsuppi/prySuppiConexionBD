@@ -27,7 +27,6 @@ namespace prySuppiConexionBD
 
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Console.WriteLine(e.ColumnIndex);
 
             if (e.ColumnIndex == 4)
             {
@@ -45,5 +44,6 @@ namespace prySuppiConexionBD
                 clsConexion.EliminarProducto(nombre, dgvProductos);
             }
         }
+
     }
 }

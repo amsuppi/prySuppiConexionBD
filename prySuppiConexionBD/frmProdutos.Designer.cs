@@ -38,8 +38,6 @@
             this.lblCategoria = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.lblStock = new System.Windows.Forms.Label();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudStock)).BeginInit();
@@ -47,6 +45,9 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.BackColor = System.Drawing.SystemColors.Menu;
+            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNombre.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.txtNombre.Location = new System.Drawing.Point(12, 57);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(267, 26);
@@ -54,6 +55,8 @@
             // 
             // nudStock
             // 
+            this.nudStock.BackColor = System.Drawing.SystemColors.Menu;
+            this.nudStock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nudStock.Location = new System.Drawing.Point(12, 127);
             this.nudStock.Name = "nudStock";
             this.nudStock.Size = new System.Drawing.Size(267, 26);
@@ -61,6 +64,7 @@
             // 
             // cmbCategoria
             // 
+            this.cmbCategoria.BackColor = System.Drawing.SystemColors.Menu;
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Location = new System.Drawing.Point(299, 127);
             this.cmbCategoria.Name = "cmbCategoria";
@@ -97,6 +101,8 @@
             // 
             // rtxtDescripcion
             // 
+            this.rtxtDescripcion.BackColor = System.Drawing.SystemColors.Menu;
+            this.rtxtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtxtDescripcion.Location = new System.Drawing.Point(12, 204);
             this.rtxtDescripcion.Name = "rtxtDescripcion";
             this.rtxtDescripcion.Size = new System.Drawing.Size(555, 96);
@@ -114,6 +120,8 @@
             // 
             // txtPrecio
             // 
+            this.txtPrecio.BackColor = System.Drawing.SystemColors.Menu;
+            this.txtPrecio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPrecio.Location = new System.Drawing.Point(299, 57);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(268, 26);
@@ -128,55 +136,40 @@
             this.lblStock.TabIndex = 10;
             this.lblStock.Text = "Stock";
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(111, 233);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(125, 37);
-            this.btnEliminar.TabIndex = 11;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Location = new System.Drawing.Point(268, 233);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(121, 37);
-            this.btnEditar.TabIndex = 12;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(450, 335);
+            this.btnAgregar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnAgregar.Location = new System.Drawing.Point(431, 335);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(117, 37);
+            this.btnAgregar.Size = new System.Drawing.Size(136, 46);
             this.btnAgregar.TabIndex = 13;
             this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnBuscar
             // 
+            this.btnBuscar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btnBuscar.Location = new System.Drawing.Point(12, 335);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(136, 37);
+            this.btnBuscar.Size = new System.Drawing.Size(136, 46);
             this.btnBuscar.TabIndex = 14;
             this.btnBuscar.Text = "Ver";
-            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(579, 393);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.lblStock);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.lblCategoria);
@@ -209,8 +202,6 @@
         private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label lblStock;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnBuscar;
     }
